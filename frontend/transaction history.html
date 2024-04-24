@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Line Chart JS</title>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
+    <style type="text/css">      
+      html, body, #container { 
+        width: 80%; height: 80%; margin: 0; padding: 20px; padding-right: 30px; padding-top: 20px;;
+      } 
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      var data = [
+  ["2003", 1, 0, 0],
+  ["Jan'03", 4, 0, 0],
+  ["Feb'03", 6, 0, 0],
+  ["March'03", 9, 1, 0],
+  ["April'03", 12, 2, 0],
+  ["May'03", 13, 5, 1],
+  ["June'03", 15, 6, 1],
+  ["July'03", 16, 9, 1],
+  ["Aug'03", 16, 10, 4],
+  ["Sept'03", 17, 11, 5],
+  ["Oct'03", 17, 13, 6],
+  ["Nov'03", 17, 14, 7],
+  ["Dec'03", 17, 14, 10],
+  ["2004", 17, 14, 12],
+  ["Jan'04", 19, 16, 12],
+  ["Feb'04", 20, 17, 14],
+  ["March'04", 20, 19, 16],
+  ["April'04", 20, 20, 17],
+  ["May'04", 20, 20, 20],
+  ["June'04", 20, 22, 20]
+];
+
+var dataSet = anychart.data.set(data);
+
+        // map the data for all series
+        var firstSeriesData = dataSet.mapAs({x: 0, value: 1});
+        var secondSeriesData = dataSet.mapAs({x: 0, value: 2});
+        var thirdSeriesData = dataSet.mapAs({x: 0, value: 3});
+
+        // create a line chart
+        var chart = anychart.line();
+
+        // create the series and name them
+        var firstSeries = chart.line(firstSeriesData);
+        firstSeries.name("Team A");
+        var secondSeries = chart.line(secondSeriesData);
+        secondSeries.name("Team B");
+        var thirdSeries = chart.line(thirdSeriesData);
+        thirdSeries.name("Team C");
+
+        // add a legend
+        chart.legend().enabled(true);
+  
+        // add a title
+        chart.title("Transation History");
+  
+        // specify where to display the chart
+        chart.container("container");
+  
+        // draw the resulting chart
+        chart.draw();
+  
+      ;
+    </script>
+  </body>
+</html>
